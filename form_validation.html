@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form</title>
+	<link rel="stylesheet" type="text/css" href="1.css">
+	<style type="text/css">
+		span{color : red}	
+		.box{
+        box-shadow: 0 0  15px rgba(0,0,0,0.5);
+        padding : 10px;
+        text-align: center;
+        font-size : 20px;
+    }
+	</style>
+
+	<script type="text/javascript">
+	function validation(){
+		var username = document.getElementById('fname').value;
+		var userlast = document.getElementById('lname').value;
+		var userphone = document.getElementById('phoneno').value;
+		var userotp = document.getElementById('otp').value;
+		var useremail = document.getElementById('email').value;
+		var userpass = document.getElementById('password').value;
+		var usercpass = document.getElementById('cpassword').value;
+		var userage = document.getElementById('age').value;
+		var userdob = document.getElementById('dob').value;
+		
+		document.getElementById('ufname').innerHTML = "";
+		document.getElementById('ulname').innerHTML = "";
+		document.getElementById('uphoneno').innerHTML = "";
+		document.getElementById('otp').innerHTML = "";
+		document.getElementById('uemail').innerHTML = "";
+		document.getElementById('upassword').innerHTML = "";
+		document.getElementById('ucpassword').innerHTML = "";
+		document.getElementById('uage').innerHTML = "";
+		document.getElementById('udob').innerHTML = "";
+		document.getElementById('uotp').innerHTML = "";
+		
+		
+		if(username == ""){
+			document.getElementById('ufname').innerHTML = "* Please fill the First Name *";
+		return false;
+		}
+		if((username.length <= 2) || (username.length > 20)) {
+			document.getElementById('ufname').innerHTML = "* Please enter character between 3 and 20 *";
+		return false;
+		}
+		if(!isNaN(username)) {
+			document.getElementById('ufname').innerHTML = "* Please enter Only character *";
+		return false;
+		}
+
+
+
+		if(userlast == ""){
+			document.getElementById('ulname').innerHTML = "* Please fill the Lanst Name *"
+		return false;
+		}
+		if((userlast.length <= 2) || (userlast.length > 20)) {
+			document.getElementById('ulname').innerHTML = "* Please enter character between 3 and 20 *";
+		return false;
+		}
+		if(!isNaN(userlast)) {
+			document.getElementById('ulname').innerHTML = "* Please enter Only character *";
+		return false;
+		}
+
+
+
+		if(userphone == ""){
+			document.getElementById('uphoneno').innerHTML = "* Please fill the Phone No *"
+		return false;
+		}
+		if(userphone.length != 10) {
+			document.getElementById('uphoneno').innerHTML = "* Please enter 10 digit number";
+		return false;
+		}
+		if(isNaN(userphone)) {
+			document.getElementById('uphoneno').innerHTML = "* Please enter Only Number *";
+		return false;
+		}
+
+		if(userotp == ""){
+			document.getElementById('uotp').innerHTML = "* Please insert OTP *"
+		return false;
+		}
+
+		if(isNaN(userotp)) {
+			document.getElementById('uotp').innerHTML = "* Please enter Only Number *";
+		return false;
+		}
+
+		if(userotp.length != 6) {
+			document.getElementById('uotp').innerHTML = "* Please enter 6 digit OTP";
+		return false;
+		}
+
+		if(userotp != document.getElementById('otpg').innerHTML) {
+			alert("does not match OTP");
+			document.getElementById('uotp').innerHTML = "* Your otp does not match *";
+		return false;
+		}
+
+
+
+		if(useremail == ""){
+			document.getElementById('uemail').innerHTML = "* Please fill the Email Id *";
+		return false;
+		}
+		if(useremail.indexOf('@') <=0){
+			document.getElementById('uemail').innerHTML = "* @ Invalid Position *";
+		return false;	
+		}
+		
+		if((useremail.charAt(useremail.length-4)!='.') && (useremail.charAt(useremail.length-3)!='.')){
+			document.getElementById('uemail').innerHTML = "* . is invalid position *";
+		return false;	
+		}
+
+
+		if(userpass == ""){
+			document.getElementById('upassword').innerHTML = "* Please fill the Password *"
+		return false;
+		}
+		if((userpass.length <= 5) || (userpass.length > 20)) {
+			document.getElementById('upassword').innerHTML = "* Please enter password between 6 and 20 *";
+		return false;
+		}
+
+
+		if(userpass!=usercpass){
+			document.getElementById('ucpassword').innerHTML = "* Your password does not match *";
+		return false;
+		}
+
+
+		if(usercpass == ""){
+			document.getElementById('ucpassword').innerHTML = "* Please fill the Password *"
+		return false;
+		}
+		if((usercpass.length <= 5) || (usercpass.length > 20)) {
+			document.getElementById('ucpassword').innerHTML = "* Please enter password between 6 and 20 *";
+		return false;
+		}
+
+
+		if(userage == ""){
+			document.getElementById('uage').innerHTML = "* Please fill the Age *"
+		return false;
+		}
+		if(isNaN(userage)) {
+			document.getElementById('uage').innerHTML = "* Please enter Only Number *";
+		return false;
+		}
+		if (userage < 18 || userage > 200)
+		
+		{ 
+			document.getElementById('uage').innerHTML = "* Sorry you are not 18+ *";
+			alert("The age must be a number between 1 and 200");
+  			return false;
+		}
+		
+		
+
+
+		if(userdob == ""){
+			document.getElementById('udob').innerHTML = "* Please fill the Date of birth *"
+		return false;
+		}
+	}
+	
+	function ConfirmDelete()
+	{
+  		var result = confirm("Want to delete?");
+		if (result) {
+		    return true;
+		}else{
+			return false;
+		}
+	}	
+/*
+	function myFunction() {
+  		var x = document.getElementById("password");
+  		if (x.type === "password") {
+    		x.type = "text";
+ 		 } else {
+    		x.type = "password";
+ 		 }
+ 	}*/
+ 	function myFunction2() {
+  		var x = document.getElementById("password");
+  		var y = document.getElementById("cpassword");
+  		if ((y.type === "password") | (x.type ==="password"))  {
+    		y.type = "text";
+    		x.type = "text";
+ 		 } else {
+    		y.type = "password";
+    		x.type = "password";
+ 		 }
+ 	}
+
+function generate() {
+    let num = '0123456789';
+    let OTP = '';
+    let otpLength = 6;
+    for (let i = 0; i < otpLength; i++ ) {
+        OTP += num[Math.floor(Math.random() * 10)];
+    }
+    document.getElementById('otpg').innerHTML=OTP;    
+}
+	
+</script>
+</head>
+<body>
+<form  action="" method="post" onsubmit="return validation()">
+	<fieldset class="field_set">
+		<legend><h1>Registratin form</h1></legend>
+	<label>First Name</label><br/>
+	<input type="text" id= "fname" name="fname" placeholder="enter first tname" ><br/>
+	<span id="ufname"></span><br/>
+
+	<label>Last Name</label><br/>
+	<input type="text" id="lname" name="lname" placeholder="enter last tname" ><br/>
+	<span id="ulname"></span><br/>
+
+	<label>Phone no</label><br/>
+	<input type="text" id="phoneno" name="phone_no" placeholder="enter phone no" ><br/>
+	<span id="uphoneno"></span><br/>
+
+	<label>Enter OTP</label><br/>
+	<input type="text" id="otp" name="otp" placeholder="enter One time password" ><br/>
+	
+	<button type="button" onclick="generate()" id="">  Generate otp </button>
+	<span style="color: black;">Your OTP is :   </span>
+	<span class="box" id="otpg"></span>
+	<span id="uotp" ></span><br/>
+	
+
+	<label>Email id</label><br/>
+	<input type="text" id="email" name="email" placeholder="enter email id" ><br/>
+	<span id="uemail"></span><br/>
+
+	<label>Password</label><br/>
+	<input type="password" id="password" placeholder="Enter password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, 1special character and at least 8 or more characters">
+	<br/>
+	<span id="upassword"></span><br/>
+
+	<label>Confirm Password</label><br/>
+	<input type="password" id="cpassword" placeholder="Confirm password" name="cpassword">
+	<br/>
+	<span id="ucpassword"></span><br/>
+
+	<label>Show password</label>
+	<input type="checkbox" onclick="myFunction2()">
+	<br/><br/>
+
+	<label>Age</label>
+	<input type="text" id="age" name="fname" placeholder="enter Age" ><br/>
+	<span id="uage"></span><br/>
+
+	<label>DOB</label><br/>
+	<input type="date" id="dob" name="fname" placeholder="enter DOB" ><br/>
+	<span id="udob"></span><br/>
+	<label>City</label>
+	<select name="city" value="select city">
+        <option style="background-color: blue;"value="Select City" selected >Select Your City</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Banglaore">Banglaore</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Culcutta">Culcutta</option>
+        <option value="Chennai">Chennai</option>
+    </select><br/><br/>
+    <label>State</label>
+    <select name="State" value="select State">
+        <option style="background-color: blue;"value="Select State" selected >Select Your State</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Maharastra">Maharastra</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+    </select>
+	</fieldset><br/>
+	
+	<button > submit</button>
+	<input type="reset"  class = "reset"  onclick="return ConfirmDelete()" name="reset" id="reset">
+	
+</form>
+</body>
+</html>

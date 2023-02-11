@@ -1,0 +1,30 @@
+input[type=text], input[type=date], input[type=password] {
+ 		 width: 100%;
+ 		 padding: 12px 20px;
+ 		 margin: 8px 0;
+  		 display: inline-block;
+ 		 border: 2px solid #ccc;
+ 		 box-sizing: border-box;
+		}
+		.field_set{
+ 		border-color: #F00;
+  		border-style: solid;
+		}
+
+		h1{color : blue}
+		body { background-color: skyblue ; }
+
+		.reset{
+			margin-left: 1420px;
+			background-color: red;
+			padding: 10px;
+		}
+
+		button{
+			background-color: blue;
+			padding: 10px;
+		}
+
+		input[type=checkbox] {
+			padding : 30px 30px;
+		}
