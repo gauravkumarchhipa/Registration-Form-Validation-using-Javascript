@@ -1,4 +1,6 @@
 # Registration-Form-Validation-using-Javascript
+# Using Technology
+HTML, CSS, JavaScript
 #Screen Shorts
 
 ![Screenshot (504)](https://user-images.githubusercontent.com/93989396/219451156-cea6066d-a294-45fa-82d9-931d1c67f686.png)
